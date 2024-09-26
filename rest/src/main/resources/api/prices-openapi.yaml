@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Inditex Core Platform - Technical Proof - OpenAPI 3.0
+  version: 1.0.0
+servers:
+  - url: "http://localhost:8080/api"
+tags:
+  - name: Prices
+    description: Product prices
+paths:
+  /brands/{brandId}/products/{productId}/price:
+    get:
+      operationId: findPrices
+      tags:
+        - Prices
+      parameters:
+        - in: path
+          name: brandId
+          description: 'Brand identifier'
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - in: path
+          name: productId
+          description: 'Product identifier'
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: fee
+          description: 'Request timestamp'
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductPriceResponse'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+components:
+  schemas:
+    ProductPriceResponse:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int32
+        priceId:
+          type: integer
+          format: int32
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        amount:
+          type: number
+          format: float
+        currency:
+          type: string
+          format: ISO-4217
+          pattern: ^[a-z]{3}$
+          minLength: 3
+          maxLength: 3
+
+
+
+
