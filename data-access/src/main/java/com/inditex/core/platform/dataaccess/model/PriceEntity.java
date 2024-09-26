@@ -26,7 +26,7 @@ public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "price_list")
-    private Long priceId;
+    private Integer priceId;
 
     @Column(nullable = false)
     private Timestamp startDate;

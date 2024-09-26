@@ -8,16 +8,22 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface PriceEntityMapper {
+import java.sql.Timestamp;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 
-    @Mapping(target = "priceId.id", qualifiedByName = "buildPriceId")
-    @Mapping(target = "startDate", ignore = true)
-    @Mapping(target = "endDate", ignore = true)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface PriceEntityMapper extends BaseIdMapper<PriceId, Integer> {
+
+    @Mapping(target = "id", source = "priceId")
+    @Mapping(target = "startDate", qualifiedByName = "toOffsetDateTIme")
+    @Mapping(target = "endDate", qualifiedByName = "toOffsetDateTIme")
+    @Mapping(target = "amount", source = "amount")
+    @Mapping(target = "currency", source = "currency")
     Price toPrice(PriceEntity priceEntity);
 
-    @Named("buildPriceId")
-    default PriceId buildPriceId(PriceEntity priceEntity) {
-        return new PriceId(priceEntity.getPriceId());
+    @Named("toOffsetDateTIme")
+    default OffsetDateTime toOffsetDateTIme(Timestamp timestamp) {
+        return OffsetDateTime.ofInstant(timestamp.toInstant(), ZoneId.of("UTC"));
     }
 }
