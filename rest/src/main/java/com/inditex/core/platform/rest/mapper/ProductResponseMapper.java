@@ -7,8 +7,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.openapitools.model.ProductPriceResponse;
 
-import java.util.Date;
-
 @Mapper
 public interface ProductResponseMapper {
 
@@ -20,8 +18,8 @@ public interface ProductResponseMapper {
     default void setPrice(Product product, @MappingTarget ProductPriceResponse response) {
         product.getPrices().stream().limit(1).forEach(price -> {
             response.setPriceId(price.getId().getValue());
-            response.setStartDate(Date.from(price.getStartDate().toInstant()));
-            response.setEndDate(Date.from(price.getEndDate().toInstant()));
+            response.setStartDate(price.getStartDate());
+            response.setEndDate(price.getEndDate());
             response.setCurrency(price.getCurrency());
             response.setAmount(price.getAmount());
         });

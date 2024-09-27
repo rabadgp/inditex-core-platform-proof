@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.time.OffsetDateTime;
+import java.time.Instant;
 import java.util.Optional;
 
 @Service
@@ -21,8 +21,8 @@ public class FindProductPriceServiceImpl implements FindProductPriceService {
     private final ProductEntityMapper productEntityMapper;
 
     @Override
-    public Optional<Product> findActivePrice(BrandId brandId, ProductId productId, OffsetDateTime fareDate) {
-        return productRepository.findActivePrice(brandId.getValue(), productId.getValue(), Timestamp.from(fareDate.toInstant()))
+    public Optional<Product> findActivePrice(BrandId brandId, ProductId productId, Instant feeDateTime) {
+        return productRepository.findActivePrice(brandId.getValue(), productId.getValue(), Timestamp.from(feeDateTime))
                 .map(productEntityMapper::toProduct);
     }
 }

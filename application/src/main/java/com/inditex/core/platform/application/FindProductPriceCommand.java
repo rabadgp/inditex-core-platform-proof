@@ -9,9 +9,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
-import java.util.Date;
+import java.time.Instant;
 import java.util.Optional;
 
 @Component
@@ -25,12 +23,12 @@ public class FindProductPriceCommand implements Command<Optional<Product>> {
 
     private ProductId productId;
 
-    private OffsetDateTime feeDate;
+    private Instant feeDate;
 
-    public void init(Integer brandId, Long productId, Date feeDate) {
+    public void init(Integer brandId, Long productId, Instant feeDate) {
         this.brandId = new BrandId(brandId);
         this.productId = new ProductId(productId);
-        this.feeDate = feeDate.toInstant().atOffset(ZoneOffset.UTC);
+        this.feeDate = feeDate;
     }
 
 

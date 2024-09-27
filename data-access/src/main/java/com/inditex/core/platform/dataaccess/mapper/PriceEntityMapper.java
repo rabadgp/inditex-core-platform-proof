@@ -9,21 +9,20 @@ import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
 import java.sql.Timestamp;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
+import java.time.Instant;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PriceEntityMapper extends BaseIdMapper<PriceId, Integer> {
 
     @Mapping(target = "id", source = "priceId")
-    @Mapping(target = "startDate", qualifiedByName = "toOffsetDateTIme")
-    @Mapping(target = "endDate", qualifiedByName = "toOffsetDateTIme")
+    @Mapping(target = "startDate", qualifiedByName = "toInstant")
+    @Mapping(target = "endDate", qualifiedByName = "toInstant")
     @Mapping(target = "amount", source = "amount")
     @Mapping(target = "currency", source = "currency")
     Price toPrice(PriceEntity priceEntity);
 
-    @Named("toOffsetDateTIme")
-    default OffsetDateTime toOffsetDateTIme(Timestamp timestamp) {
-        return OffsetDateTime.ofInstant(timestamp.toInstant(), ZoneId.of("UTC"));
+    @Named("toInstant")
+    default Instant toInstant(Timestamp timestamp) {
+        return timestamp.toInstant();
     }
 }

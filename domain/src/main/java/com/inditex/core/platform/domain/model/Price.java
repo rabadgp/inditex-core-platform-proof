@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.Instant;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +17,6 @@ public class Price extends BaseEntity<PriceId> {
     private Short priority;
     private Float amount;
     private String currency;
-    private OffsetDateTime startDate;
-    private OffsetDateTime endDate;
+    private Instant startDate;
+    private Instant endDate;
 }

@@ -10,7 +10,7 @@ import org.openapitools.model.ProductPriceResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.time.Instant;
 import java.util.Optional;
 
 @RestController
@@ -22,7 +22,7 @@ public class PricesController implements PricesApi {
     ProductResponseMapper productResponseMapper;
 
     @Override
-    public ResponseEntity<ProductPriceResponse> findPrices(Integer brandId, Long productId, Date fee) {
+    public ResponseEntity<ProductPriceResponse> findPrices(Integer brandId, Long productId, Instant fee) {
         findProductPriceCommand.init(brandId, productId, fee);
         useCaseInvoker.setCommand(findProductPriceCommand);
         Optional<Product> product = useCaseInvoker.executeCommand();
