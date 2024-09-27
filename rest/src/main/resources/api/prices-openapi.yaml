@@ -69,6 +69,7 @@ components:
         amount:
           type: number
           format: float
+          multipleOf: 0.01
         currency:
           type: string
           format: ISO-4217

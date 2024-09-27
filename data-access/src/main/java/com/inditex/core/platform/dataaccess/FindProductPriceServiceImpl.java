@@ -9,7 +9,6 @@ import com.inditex.core.platform.domain.model.ProductId;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Optional;
 
@@ -22,7 +21,7 @@ public class FindProductPriceServiceImpl implements FindProductPriceService {
 
     @Override
     public Optional<Product> findActivePrice(BrandId brandId, ProductId productId, Instant feeDateTime) {
-        return productRepository.findActivePrice(brandId.getValue(), productId.getValue(), Timestamp.from(feeDateTime))
+        return productRepository.findActivePrice(brandId.getValue(), productId.getValue(), feeDateTime)
                 .map(productEntityMapper::toProduct);
     }
 }

@@ -26,6 +26,6 @@ public class PricesController implements PricesApi {
         findProductPriceCommand.init(brandId, productId, fee);
         useCaseInvoker.setCommand(findProductPriceCommand);
         Optional<Product> product = useCaseInvoker.executeCommand();
-        return product.map(productResponseMapper::toProductPriceResponse).map(ResponseEntity::ok).orElseGet(ResponseEntity.noContent()::build);
+        return product.map(productResponseMapper::toProductPriceResponse).map(ResponseEntity::ok).orElseGet(ResponseEntity.notFound()::build);
     }
 }

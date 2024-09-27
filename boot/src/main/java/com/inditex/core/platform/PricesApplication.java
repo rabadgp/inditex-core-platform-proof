@@ -6,8 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.inditex.core.platform")
-//@EntityScan("com.inditex.core.platform.dataaccess.model")
-//@EnableJpaRepositories(basePackages = "com.inditex.core.platform.dataaccess")
 public class PricesApplication {
 
     public static void main(String[] args) {

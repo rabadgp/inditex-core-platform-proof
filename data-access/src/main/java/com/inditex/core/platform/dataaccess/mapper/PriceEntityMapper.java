@@ -10,6 +10,8 @@ import org.mapstruct.ReportingPolicy;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PriceEntityMapper extends BaseIdMapper<PriceId, Integer> {
@@ -23,6 +25,6 @@ public interface PriceEntityMapper extends BaseIdMapper<PriceId, Integer> {
 
     @Named("toInstant")
     default Instant toInstant(Timestamp timestamp) {
-        return timestamp.toInstant();
+        return OffsetDateTime.of(timestamp.toLocalDateTime(), ZoneOffset.UTC).toInstant();
     }
 }
