@@ -69,7 +69,11 @@ where:
 - `{productId}` is the numerical product identifier
 - `{fee}` is the timestamp in "YYYY-mm-dd'T'HH:mm:ss'Z'" format
 
-Response object in a successful request `(200 OK)` is:
+Request example with a successful request `(200 OK)` is:
+
+```bash
+  curl --location 'http://localhost:8080/brands/1/products/35455/price?fee=2020-06-15T22%3A00%3A00Z'
+```
 
 ```json
 {
