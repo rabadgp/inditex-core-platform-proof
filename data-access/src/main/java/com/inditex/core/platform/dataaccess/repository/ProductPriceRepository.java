@@ -5,7 +5,7 @@ import com.inditex.core.platform.dataaccess.model.ProductEntity;
 import java.time.Instant;
 import java.util.Optional;
 
-public interface ProductRepository {
+public interface ProductPriceRepository {
 
     Optional<ProductEntity> findActivePrice(Integer brandId, Long productId, Instant fee);
 }

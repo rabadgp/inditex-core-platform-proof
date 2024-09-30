@@ -1,6 +1,6 @@
 package com.inditex.core.platform.domain.model;
 
-import com.inditex.core.platform.domain.AggregateRoot;
+import com.inditex.core.platform.domain.util.AggregateRoot;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

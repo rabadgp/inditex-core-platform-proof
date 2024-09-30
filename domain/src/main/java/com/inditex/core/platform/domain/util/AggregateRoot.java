@@ -1,4 +1,4 @@
-package com.inditex.core.platform.domain;
+package com.inditex.core.platform.domain.util;
 
 public class AggregateRoot<ID extends BaseId<?>> extends BaseEntity<ID> {
 

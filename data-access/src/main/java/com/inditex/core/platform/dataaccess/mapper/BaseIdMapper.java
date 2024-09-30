@@ -1,6 +1,6 @@
 package com.inditex.core.platform.dataaccess.mapper;
 
-import com.inditex.core.platform.domain.BaseId;
+import com.inditex.core.platform.domain.util.BaseId;
 import org.mapstruct.Mapping;
 
 

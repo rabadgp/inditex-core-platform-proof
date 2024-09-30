@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class ProductRepositoryImpl implements ProductRepository {
+public class ProductPriceRepositoryImpl implements ProductPriceRepository {
 
     EntityManager entityManager;
 
@@ -39,7 +39,6 @@ public class ProductRepositoryImpl implements ProductRepository {
                 .map(price -> {
                     ProductEntity product = price.getProduct();
                     return new ProductEntity(product.getProductId(), product.getBrandId(), Collections.singletonList(price));
-
                 })
                 .getOrNull();
         return Optional.ofNullable(productEntity);
