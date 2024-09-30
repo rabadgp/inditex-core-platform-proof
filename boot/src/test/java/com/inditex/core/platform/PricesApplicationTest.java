@@ -27,4 +27,12 @@ class PricesApplicationTest {
                 .andExpect(content().json(expected));
     }
 
+    @ParameterizedTest
+    @CsvFileSource(numLinesToSkip = 1, delimiterString = "|", resources = "/getProductPricesError.csv")
+    void priceResquestsTestShouldReturn404(Integer brandId, Integer productId, String fee, int expectedStatusCode) throws Exception {
+        String endpoint = String.format("/brands/%d/products/%d/price", brandId, productId);
+        this.mockMvc.perform(get(endpoint).queryParam("fee", fee))
+                .andExpect(status().is(expectedStatusCode));
+    }
+
 }

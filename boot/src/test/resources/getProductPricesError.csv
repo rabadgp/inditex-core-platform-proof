@@ -1,0 +1,5 @@
+brandId|productId|fee|statusCodeExpected
+1      |35455    |2020-06-12T10:00:00Z|404
+1      |35454    |2020-06-14T16:00:00Z|422
+
+
