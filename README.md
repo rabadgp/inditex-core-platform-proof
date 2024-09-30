@@ -1,19 +1,18 @@
 # Introduction
 
-Para un sistema de ecommerce se mantiene una base de datos que almacena información de los productos para de las marcas
-existentes. Para la gestión de los precios de estos productos existe se maneja la siguiente información:
+In an e-commerce system a database is maintained to store information about the products of the existing brands.
+The following information is used to manage the prices of these existing products:
 
-- BRAND_ID : representa un identificador único para la marca a la que pertenece el producto :
-- START_DATE / END_DATE: Estos campos definen un rango de fechas durante el cual un precio y una tarifa son aplicables
-  para un producto
-- PRICE_LIST : Aquí encontramos un identificador que corresponde a la tarifa específica que se aplica a un producto en
-  un período determinado.
-- PRODUCT_ID : Este campo almacena un identificador único para cada producto, permitiendo la identificación individual
-  de los artículos en el catálogo.
-- PRIORITY : Un valor numérico que se utiliza para desambiguar la aplicación de precios en caso de que dos tarifas
-  coincidan en un rango de fechas. Aplica la tarifa con la prioridad más alta.
-- PRICE : Indica el precio final de venta del producto en la moneda correspondiente.
-- CURR : Código ISO de la moneda en la que se establece el precio.
+- BRAND_ID : represents a unique identifier for the brand to which the product belongs
+- START_DATE / END_DATE: These fields define a date range during which a price rate is applicable for a product.
+- PRICE_LIST : Here we find an identifier that corresponds to the specific price that applies to a product in a given
+  period.
+- PRODUCT_ID : This field stores a unique identifier for each product, allowing the individual identification of items
+  in the catalog.
+- PRIORITY : A numeric value used to disambiguate price application in the event that two rates overlap within a date
+  range. Applies the rate with the higher priority.
+- PRICE : Indicates the final selling price of the product in the corresponding currency.
+- CURR : ISO code of the currency in which the price is set.
 
 An example of the data managed by the persistence system and to be used for the proof is shown below:
 
