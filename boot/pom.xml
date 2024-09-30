@@ -52,6 +52,12 @@
                             <goal>repackage</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>run</id>
+                        <configuration>
+                            <mainClass>com.kairos.tech.proof.PricesApplication</mainClass>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

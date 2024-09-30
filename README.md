@@ -122,6 +122,12 @@ An H2 persistence system with the following tables has been used for the data mo
 
 # Execution
 
+### Requirements
+
+- Java 21
+- Maven 3.9.9
+
 ```bash
+mvn clean install
 mvn spring-boot:run -pl boot 
 ```
