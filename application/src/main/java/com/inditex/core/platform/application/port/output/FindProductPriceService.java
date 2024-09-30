@@ -10,4 +10,5 @@ import java.util.Optional;
 
 public interface FindProductPriceService {
     Optional<Product> findActivePrice(BrandId brandId, ProductId productId, Instant feeDateTime);
+
 }
