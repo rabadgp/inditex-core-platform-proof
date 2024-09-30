@@ -117,3 +117,7 @@ An H2 persistence system with the following tables has been used for the data mo
 ```
 
 # Execution
+
+```bash
+mvn spring-boot:run -pl boot 
+```
