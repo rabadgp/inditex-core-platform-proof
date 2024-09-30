@@ -1,4 +1,4 @@
-package com.inditex.core.platform;
+package com.kairos.tech.proof;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;

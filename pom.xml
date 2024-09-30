@@ -8,7 +8,7 @@
         <version>3.3.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.inditex.core.platform</groupId>
+    <groupId>com.kairos.tech.proof</groupId>
     <artifactId>prices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -34,22 +34,22 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.inditex.core.platform</groupId>
+                <groupId>com.kairos.tech.proof</groupId>
                 <artifactId>domain</artifactId>
                 <version>${price-service.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.inditex.core.platform</groupId>
+                <groupId>com.kairos.tech.proof</groupId>
                 <artifactId>application</artifactId>
                 <version>${price-service.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.inditex.core.platform</groupId>
+                <groupId>com.kairos.tech.proof</groupId>
                 <artifactId>data-access</artifactId>
                 <version>${price-service.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.inditex.core.platform</groupId>
+                <groupId>com.kairos.tech.proof</groupId>
                 <artifactId>rest</artifactId>
                 <version>${price-service.version}</version>
             </dependency>
