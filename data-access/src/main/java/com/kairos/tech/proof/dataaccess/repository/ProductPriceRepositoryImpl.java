@@ -43,19 +43,4 @@ public class ProductPriceRepositoryImpl implements ProductPriceRepository {
                 .getOrNull();
         return Optional.ofNullable(productEntity);
     }
-
-    @Override
-    public Optional<ProductEntity> findByBrandIdAndProductId(Integer brandId, Long productId) {
-        ProductEntity productEntity = Try.ofCallable(() -> entityManager.createQuery("SELECT p " +
-                                "FROM ProductEntity p " +
-                                "WHERE p.brandId = :brandId " +
-                                "AND p.productId = :productId ", ProductEntity.class)
-                        .setParameter("brandId", brandId)
-                        .setParameter("productId", productId)
-                        .setMaxResults(1)
-                        .getSingleResult())
-                .map(result -> new ProductEntity(result.getProductId(), result.getBrandId(), Collections.emptyList()))
-                .getOrNull();
-        return Optional.ofNullable(productEntity);
-    }
 }

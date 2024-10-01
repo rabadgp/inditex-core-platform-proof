@@ -8,6 +8,4 @@ import java.util.Optional;
 public interface ProductPriceRepository {
 
     Optional<ProductEntity> findActivePrice(Integer brandId, Long productId, Instant fee);
-
-    Optional<ProductEntity> findByBrandIdAndProductId(Integer brandId, Long productId);
 }
