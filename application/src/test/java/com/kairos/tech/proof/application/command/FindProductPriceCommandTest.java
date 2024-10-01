@@ -90,14 +90,16 @@ class FindProductPriceCommandTest {
     }
 
     private List<Price> buildPrices(int pricesCount) {
-        return IntStream.range(1, pricesCount + 1).mapToObj(count -> Price.builder()
-                .id(new PriceId(1))
-                .endDate(Instant.now().minusSeconds(10))
-                .startDate(Instant.now().plusSeconds(10))
-                .amount(baseProductPrice * (1 + increment * count))
-                .priority((short) count)
-                .currency("EUR")
-                .build()).collect(Collectors.toList());
+        return IntStream.range(1, pricesCount + 1)
+                .mapToObj(count -> Price.builder()
+                        .id(new PriceId(1))
+                        .endDate(Instant.now())
+                        .startDate(Instant.now())
+                        .amount(baseProductPrice * (1 + increment * count))
+                        .priority((short) count)
+                        .currency("EUR")
+                        .build())
+                .collect(Collectors.toList());
     }
 
 
