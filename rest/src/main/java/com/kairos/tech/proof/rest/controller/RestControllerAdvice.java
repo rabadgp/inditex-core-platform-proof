@@ -14,6 +14,6 @@ public class RestControllerAdvice {
     @ExceptionHandler({FindProductException.class})
     public ResponseEntity<Object> handleFindProductException(Exception ex, WebRequest request) {
         return new ResponseEntity<Object>(
-                ex.getMessage(), new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
+                ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 }

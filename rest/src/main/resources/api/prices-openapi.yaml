@@ -49,9 +49,7 @@ paths:
         '400':
           description: Bad request
         '404':
-          description: Prices not found
-        '422':
-          description: Price cannot be retrieved due to a non-existent product
+          description: Not found
 components:
   schemas:
     ProductPriceResponse:
