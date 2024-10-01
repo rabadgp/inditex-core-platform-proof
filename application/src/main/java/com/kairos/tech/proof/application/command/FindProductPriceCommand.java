@@ -30,13 +30,13 @@ public class FindProductPriceCommand implements Command<Product> {
         this.productId = new ProductId(productId);
         this.feeDate = feeDate;
     }
-    
+
     @Override
     public Product execute() {
         return findProductPriceService.findProductPrices(brandId, productId, feeDate)
                 .map(Product::getProductWithActivePrice)
                 .orElseThrow(() -> new FindProductException(
-                        MessageFormat.format("Price not found for productId:{0} and brandId:{1}",
+                        MessageFormat.format("Price not found for productId:{0,number,#} and brandId:{1}",
                                 productId.getValue(), brandId.getValue())));
     }
 }
