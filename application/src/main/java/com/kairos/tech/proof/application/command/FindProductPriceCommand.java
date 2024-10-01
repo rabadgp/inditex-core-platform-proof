@@ -1,6 +1,6 @@
-package com.kairos.tech.proof.application;
+package com.kairos.tech.proof.application.command;
 
-import com.kairos.tech.proof.application.command.Command;
+import com.kairos.tech.proof.application.exception.FindProductException;
 import com.kairos.tech.proof.application.port.output.FindProductPriceService;
 import com.kairos.tech.proof.domain.model.BrandId;
 import com.kairos.tech.proof.domain.model.Product;
@@ -9,12 +9,12 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.text.MessageFormat;
 import java.time.Instant;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class FindProductPriceCommand implements Command<Optional<Product>> {
+public class FindProductPriceCommand implements Command<Product> {
 
     @NonNull
     private final FindProductPriceService findProductPriceService;
@@ -30,11 +30,13 @@ public class FindProductPriceCommand implements Command<Optional<Product>> {
         this.productId = new ProductId(productId);
         this.feeDate = feeDate;
     }
-
-
+    
     @Override
-    public Optional<Product> execute() {
+    public Product execute() {
         return findProductPriceService.findProductPrices(brandId, productId, feeDate)
-                .map(Product::getProductWithActivePrice);
+                .map(Product::getProductWithActivePrice)
+                .orElseThrow(() -> new FindProductException(
+                        MessageFormat.format("Price not found for productId:{0} and brandId:{1}",
+                                productId.getValue(), brandId.getValue())));
     }
 }
