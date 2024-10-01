@@ -42,8 +42,8 @@ DDD principles for the domain layer.
 Domain layer is composed of the `domain` module. This is where the objects that make up the domain from the
 business point of view are located. The `Product` entity has been identified as AggregateRoot, the `Price` entity as
 Entity
-and the rest of the identifiers as ValueEntities. It is important to note that due to the lack of business rules in the
-target use case the result corresponds to that of an anemic domain.
+and the rest of the identifiers as ValueEntities. Business rule that determines the rate applicable to the product
+has been implemented in this layer, avoiding the construction of an anemic domain.
 
 The application layer is composed of the `application` module, which is in charge of defining use cases, verifying
 business rules and orchestrating between the application domain and the infrastructure layer through ports and adapters.
