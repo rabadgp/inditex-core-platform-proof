@@ -6,7 +6,7 @@ info:
     name: Raúl Abad
     email: raul.abad.gomez@kairosds.com
 servers:
-  - url: "http://localhost:8080/api"
+  - url: "http://localhost:8080"
 tags:
   - name: Prices
     description: Product prices
