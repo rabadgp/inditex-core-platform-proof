@@ -2,6 +2,9 @@ openapi: 3.0.3
 info:
   title: Inditex Core Platform - Technical Proof - OpenAPI 3.0
   version: 1.0.0
+contact:
+  name: Raúl Abad
+  email: raul.abad.gomez@kairosds.com
 servers:
   - url: "http://localhost:8080/api"
 tags:
@@ -11,6 +14,7 @@ paths:
   /brands/{brandId}/products/{productId}/price:
     get:
       operationId: findPrices
+      description: Retrieve the active prices of a product by filtering by product and brand identifiers and fee timestamp
       tags:
         - Prices
       parameters:
