@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>prices</name>
-    <description>Technical proof for Inditex Core Platform</description>
+    <description>Kairos's technical proof</description>
     <modules>
         <module>domain</module>
         <module>application</module>
