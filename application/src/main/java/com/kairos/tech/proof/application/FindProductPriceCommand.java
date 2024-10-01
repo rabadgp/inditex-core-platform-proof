@@ -34,6 +34,7 @@ public class FindProductPriceCommand implements Command<Optional<Product>> {
 
     @Override
     public Optional<Product> execute() {
-        return findProductPriceService.findActivePrice(brandId, productId, feeDate);
+        return findProductPriceService.findProductPrices(brandId, productId, feeDate)
+                .map(Product::getProductWithActivePrice);
     }
 }

@@ -20,8 +20,8 @@ public class FindProductPriceServiceImpl implements FindProductPriceService {
     private final ProductEntityMapper productEntityMapper;
 
     @Override
-    public Optional<Product> findActivePrice(BrandId brandId, ProductId productId, Instant feeDateTime) {
-        return productPriceRepository.findActivePrice(brandId.getValue(), productId.getValue(), feeDateTime)
+    public Optional<Product> findProductPrices(BrandId brandId, ProductId productId, Instant feeDateTime) {
+        return productPriceRepository.findProductPrices(brandId.getValue(), productId.getValue(), feeDateTime)
                 .map(productEntityMapper::toProduct);
     }
 }

@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ProductPriceRepository {
 
-    Optional<ProductEntity> findActivePrice(Integer brandId, Long productId, Instant fee);
+    Optional<ProductEntity> findProductPrices(Integer brandId, Long productId, Instant fee);
 }
